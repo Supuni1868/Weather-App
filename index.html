@@ -15,6 +15,8 @@
                 <button><img src="search.png"></button>
             </div>
 
+            
+
             <div class="weather">
                 <img src = "rain.png" class="weather-icon">
                 <h1 class = "temp">22°C</h1>
@@ -55,7 +57,7 @@
                 const response = await fetch(apiUrl + city + `&appid=${apikey}`);
                 var data = await response.json();
 
-                console.log(data);
+                
 
                 document.querySelector(".city").innerHTML = data.name;
                 document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
@@ -80,6 +82,8 @@
                 else if(data.weather[0].main == "Drizzle"){
                     weatherIcon.src = "drizzle.png";
                 }
+
+                document.querySelector(".weather").style.display = "block";
             }
 
             searchBtn.addEventListener("click", () => {
